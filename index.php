@@ -1,7 +1,7 @@
 <?php
-require_once('classes/database.php');
-$db = new DB();
-$usuarios = $db->select("select * from usuario");
+require_once('./classes/Usuario.php');
+$usuario = new Usuario();
+$usuarios = $usuario->findAll();
 ?>
 
 <!DOCTYPE html>
@@ -36,21 +36,21 @@ $usuarios = $db->select("select * from usuario");
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($usuarios as $usuario){ ?>
+                    <?php foreach ($usuarios as $user){ ?>
                         <tr>
-                            <td><?php echo $usuario['idusuario']; ?></td>
-                            <td><?php echo $usuario['nome']; ?></td>
-                            <td><?php echo $usuario['idade']; ?></td>
-                            <td><?php echo $usuario['plano']; ?></td>
-                            <td><?php echo $usuario['cpf']; ?></td>
-                            <td><?php echo $usuario['telefone']; ?></td>
-                            <td><?php echo $usuario['telefone2']; ?></td>
-                            <td><?php echo $usuario['dependentes']; ?></td>
-                            <td><?php if ($usuario['apartamento'] == "nao") {echo  "Não";} else {echo "Sim";} ?></td>
-                            <td>R$ <?php echo $usuario['mensalidade']; ?></td>
+                            <td><?= $user->idusuario; ?></td>
+                            <td><?= $user->nome; ?></td>
+                            <td><?= $user->idade; ?></td>
+                            <td><?= $user->plano; ?></td>
+                            <td><?= $user->cpf; ?></td>
+                            <td><?= $user->telefone; ?></td>
+                            <td><?= $user->telefone2; ?></td>
+                            <td><?= $user->dependentes; ?></td>
+                            <td><?php if ($user->apartamento == "nao") {echo  "Não";} else {echo "Sim";} ?></td>
+                            <td>R$ <?= $user->mensalidade; ?></td>
                             <td>
-                                <a id="btn-edit" href="editar_cadastro.php?id=<?php echo $usuario['idusuario']; ?>">Editar</a>
-                                <a id="btn-del" href="deletar_cadastro.php?id=<?php echo $usuario['idusuario']; ?>">Excluir</a>
+                                <a id="btn-edit" href="editar_cadastro.php?id=<?= $user->idusuario; ?>">Editar</a>
+                                <a id="btn-del" href="deletar_cadastro.php?id=<?= $user->idusuario; ?>">Excluir</a>
                             </td>
                         </tr>
                     <?php } ?>

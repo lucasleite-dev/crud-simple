@@ -15,7 +15,7 @@ if (!isset($_POST['inp-nome'])){
     header('Location: index.php');
 }
 
-require_once('classes/usuario.php');
+require_once('./classes/Usuario.php');
 
 $nome = $_POST['inp-nome'];
 $idade = $_POST['inp-idade'];
@@ -87,12 +87,8 @@ $usuario->setTelefone2($telefone2);
 $usuario->setDependentes($qntd_dependentes);
 $usuario->setApartamento($apartamento);
 $usuario->setMensalidade($valor);
-try {
-    $usuario->insert();
-} catch (\Throwable $th) {
-    //throw $th;
-} finally {
-    header('Location: index.php');
-}
+$usuario->insert();
+
+header('Location: index.php');
 
 ?>

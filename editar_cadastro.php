@@ -1,7 +1,5 @@
 <?php
-require_once('classes/database.php');
-require_once('classes/usuario.php');
-$db = new DB();
+require_once('libs/Usuario.php');
 $usuario = new Usuario();
 $id = $_GET['id'];
 $usuario->loadById($id);

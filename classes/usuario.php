@@ -1,7 +1,9 @@
 <?php
-require_once('./classes/database.php');
+require_once './libs/Crud.php';
 
-class Usuario {
+class Usuario extends Crud {
+
+    protected $table = "usuario";
 
     private $idusuario;
     private $nome;
@@ -95,59 +97,47 @@ class Usuario {
     }
 
     public function loadById($id){
-        $db = new DB();
-        $result = $db->select("SELECT * FROM usuario WHERE idusuario = :ID", array(
-            ":ID" => $id
-        ));
-
-        if (count($result) > 0){
-            $row = $result[0];
-
-            $this->setIdUsuario($row['idusuario']);
-            $this->setNome($row['nome']);
-            $this->setIdade($row['idade']);
-            $this->setPlano($row['plano']);
-            $this->setCpf($row['cpf']);
-            $this->setTelefone($row['telefone']);
-            $this->setTelefone2($row['telefone2']);
-            $this->setDependentes($row['dependentes']);
-            $this->setMensalidade($row['mensalidade']);
-            $this->setApartamento($row['apartamento']);
-        }
+        $row = find($id);
+        $this->idusuario = $row->idusuario;
+        $this->nome = $row->nome;
+        $this->idade = $row->idade;
+        $this->plano = $row->plano;
+        $this->cpf = $row->cpf;
+        $this->telefone = $row->telefone;
+        $this->telefone2 = $row->telefone2;
+        $this->dependentes = $row->dependentes;
+        $this->mensalidade = $row->mensalidade;
+        $this->apartamento = $row->apartamento;
     }
 
     public function insert(){
-        $db = new DB();
-        $db->insert(array(
-            1 => $this->getNome(),
-            2 => $this->getIdade(),
-            3 => $this->getPlano(),
-            4 => $this->getCpf(),
-            5 => $this->getTelefone(),
-            6 => $this->getTelefone2(),
-            7 => $this->getDependentes(),
-            8 => $this->getMensalidade(),
-            9 => $this->getApartamento()
-        ));
+        $sql = "INSERT INTO $this->table (nome, idade, plano, cpf, telefone, telefone2, dependentes, mensalidade, apartamento) VALUES (:nome, :idade, :plano, :cpf, :telefone, :telefone2, :dependentes, :mensalidade, :apartamento); SET @count = 0; UPDATE $this->table SET $this->table.idusuario = @count:= @count + 1;";
+        $stmt = DB::prepare($sql);
+        $stmt->bindParam(':nome', $this->nome);
+        $stmt->bindParam(':idade', $this->idade);
+        $stmt->bindParam(':plano', $this->plano);
+        $stmt->bindParam(':cpf', $this->cpf);
+        $stmt->bindParam(':telefone', $this->telefone);
+        $stmt->bindParam(':telefone2', $this->telefone2);
+        $stmt->bindParam(':dependentes', $this->dependentes);
+        $stmt->bindParam(':mensalidade', $this->mensalidade);
+        $stmt->bindParam(':apartamento', $this->apartamento);
+        return $stmt->execute();
     }
 
-    public function delete(){
-        $db = new DB();
-        $db->delete($this->getIdUsuario());
+    public function update(){
+        $sql = "UPDATE $this->table SET nome = :nome, idade = :idade, plano = :plano, cpf = :cpf, telefone = :telefone, telefone2 = :telefone2, dependentes = :dependentes, mensalidade = :mensalidade, apartamento = :apartamento WHERE idusuario = :id";
+        $stmt = DB::prepare($sql);
+        $stmt->bindParam(':id', $this->idusuario);
+        $stmt->bindParam(':nome', $this->nome);
+        $stmt->bindParam(':idade', $this->idade);
+        $stmt->bindParam(':plano', $this->plano);
+        $stmt->bindParam(':cpf', $this->cpf);
+        $stmt->bindParam(':telefone', $this->telefone);
+        $stmt->bindParam(':telefone2', $this->telefone2);
+        $stmt->bindParam(':dependentes', $this->dependentes);
+        $stmt->bindParam(':mensalidade', $this->mensalidade);
+        $stmt->bindParam(':apartamento', $this->apartamento);
+        return $stmt->execute();
     }
-
 }
-
-/*
-$usuario01 = new Usuario();
-$usuario01->setNome('Lucas');
-$usuario01->setIdade(22);
-$usuario01->setPlano('Plano Básico');
-$usuario01->setCpf(9999999999);
-$usuario01->setTelefone(79999616768);
-$usuario01->setTelefone2();
-$usuario01->setDependentes(0);
-$usuario01->setMensalidade(180);
-$usuario01->setApartamento('nao');
-$usuario01->insert();
-*/
