@@ -1,0 +1,214 @@
+* {
+	margin: 0px; 
+	padding: 0px; 
+    box-sizing: border-box;
+    font: 100% Verdana, Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.pagina {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    background: #f2f2f2;
+}
+
+.titulo {
+    color: black;
+    font-size: 42px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tabela-lista-clientes {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: #7E7F9A;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80%;
+    max-height: 80%;
+    margin: 0 auto;
+    color: #F9F8F8;
+}
+
+.tabela-lista-clientes * {
+    position: relative;
+}
+
+.tabela-lista-clientes thead tr {
+    height: 70px;
+    background: #272838;
+    color: white;
+}
+
+.tabela-lista-clientes tbody tr {
+    height: 50px;
+    border-bottom: 1px solid;
+}
+
+.tabela-lista-clientes tbody tr:last-child {
+    border: 0;
+}
+
+.tabela-lista-clientes td, table th {
+    padding-left: 8px;
+    text-align: center;
+}
+
+.tabela-lista-clientes tbody tr:hover {
+    background: rgb(105, 105, 129);
+}
+
+#btn-fazer-cadastro {
+    background: rgb(46, 224, 100);
+    font-family: arial;
+    font-size:14px;
+    color: black;
+    border:none;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    margin-right: 10%;
+    align-self: flex-end;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    padding-top: 7px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#btn-edit {
+    background: rgb(255, 255, 255);
+    font-family: arial;
+    font-size:14px;
+    border:none;
+    cursor: pointer;
+    display:inline-block;
+    text-decoration: none;
+    width: 70px;
+    height: 25px;
+    padding-top: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+#btn-del {
+    background: rgba(253, 43, 43, 0.815);
+    font-family: arial;
+    font-size:14px;
+    padding-top: 5px;
+    text-decoration: none;
+    color: black;
+    border:none;
+    cursor: pointer;
+    display:inline-block;
+    text-decoration: none;
+    width: 70px;
+    height: 25px;
+}
+
+.form-cadastro {
+    background: #41435e;
+    width: 600px;
+    min-height: 650px;    
+    border-spacing: 1;
+    border-collapse: collapse;
+    border-radius: 10px;
+    max-height: 80%;
+    margin: -10px auto;
+    color: #F9F8F8;
+    align-items: center;
+}
+
+.form-cadastro .form-group {
+    padding-left: 110px;
+    padding-top: 15px;
+    border: none;
+}
+
+.form-cadastro input:not([type="checkbox"]){
+    display: block;
+    width: 75%;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    padding: 10px;    
+    border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+    background: #f2f2f2;
+}
+
+#inp-telefone {
+    width: 30% !important;
+}
+
+#inp-telefone2 {
+    width: 30% !important;
+}
+
+.titulo-cadastrar {
+    color: black;
+    font-size: 42px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+#btn-cadastrar {
+    background: rgb(46, 224, 100);
+    color: black;
+    font-family: arial;
+    font-size:16px;
+    border:none;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 100px;
+}
+
+.conteudo-deletar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#btn-deletar {
+    background: rgba(253, 43, 43, 0.815);
+    color: black;
+    font-family: arial;
+    font-size:20px;
+    border:none;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 7px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+#btn-deletar:last-child {
+    margin-right: 0px;
+}
