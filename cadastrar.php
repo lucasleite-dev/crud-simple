@@ -30,11 +30,11 @@
                         <option value="Plano Master">Plano Master</option>
                     </select><br><br>
                     <label for="inp-cpf">CPF *</label>
-                    <input type="number" name="inp-cpf" id="inp-cpf" minlength="" maxlength="11" required>
+                    <input type="text" name="inp-cpf" id="inp-cpf" minlength="11" maxlength="11" required>
                     <label for="inp-telefone">Telefone *</label>
-                    <input type="number" name="inp-telefone" id="inp-telefone" minlength="" maxlength="11" required>
+                    <input type="text" name="inp-telefone" id="inp-telefone" minlength="10" maxlength="11" required>
                     <label for="inp-telefone2">Telefone (Opcional)</label>
-                    <input type="number" name="inp-telefone2" id="inp-telefone2" minlength="" maxlength="11">
+                    <input type="text" name="inp-telefone2" id="inp-telefone2" minlength="10" maxlength="11">
                     <label for="inp-qntd-dependentes">Quantidade de Dependentes *</label>
                     <input type="text" name="inp-qntd-dependentes" id="inp-qntd-dependentes" min="0" required>
                     <label for="inp-apartamento">Apartamento *</label><br>
