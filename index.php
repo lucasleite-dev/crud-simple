@@ -19,7 +19,7 @@ $usuarios = $usuario->findAll();
             <h1>Usuários com Planos de Saúde</h3>
         </div>
         <div class="conteudo">
-            <a id="btn-fazer-cadastro" href="paginas/cadastrar.php">Cadastrar</a>
+            <a id="btn-fazer-cadastro" href="views/cadastrar.php">Cadastrar</a>
             <table class="tabela-lista-clientes">
                 <thead>
                     <tr>
@@ -50,8 +50,8 @@ $usuarios = $usuario->findAll();
                             <td><?php if ($user->apartamento == "nao") {echo  "Não";} else {echo "Sim";} ?></td>
                             <td>R$ <?= number_format($user->mensalidade, 2, ',', ''); ?></td>
                             <td>
-                                <a class="btn-acao" href="paginas/editar_cadastro.php?id=<?= $user->idusuario; ?>"><i class="material-icons">edit</i></a>
-                                <a class="btn-acao" href="paginas/deletar_cadastro.php?id=<?= $user->idusuario; ?>"><i class="material-icons">delete</i></a>
+                                <a class="btn-acao" href="views/editar_cadastro.php?id=<?= $user->idusuario; ?>"><i class="material-icons">edit</i></a>
+                                <a class="btn-acao" href="views/deletar_cadastro.php?id=<?= $user->idusuario; ?>"><i class="material-icons">delete</i></a>
                             </td>
                         </tr>
                     <?php } ?>

@@ -1,7 +1,7 @@
 <?php
 
-if (!isset($_GET['id'])) return header('Location: ../index.php');
-if (!isset($_POST['inp-nome'])) return header('Location: ../index.php');
+if (!isset($_GET['id']) || $_GET['id'] == null) header('Location: ../index.php');
+if (!isset($_POST['inp-nome'])) header('Location: ../index.php');
 
 require_once(__DIR__.'/../models/Usuario.php');
 $usuario = new Usuario();
@@ -22,7 +22,7 @@ $numeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 for ($i = 0; $i < strlen($cpf); $i++){
     if (!in_array($cpf[$i], $numeros)) {
         $erro = "CPF inválido! Apenas números.";
-        return header("Location: ../paginas/editar_cadastro.php?id=".$id."&erro=".$erro);
+        return header("Location: ../views/editar_cadastro.php?id=".$id."&erro=".$erro);
     }
 }
 

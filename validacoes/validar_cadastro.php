@@ -34,7 +34,7 @@ $numeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 for ($i = 0; $i < strlen($cpf); $i++){
     if (!in_array($cpf[$i], $numeros)) {
         $erro = "CPF inválido! Apenas números.";
-        return header("Location: ../paginas/editar_cadastro.php?id=".$id."&erro=".$erro);
+        return header("Location: ../views/editar_cadastro.php?id=".$id."&erro=".$erro);
     }
 }
 
