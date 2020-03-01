@@ -17,7 +17,7 @@
                     <label for="inp-nome">Nome *</label>
                     <input type="text" name="inp-nome" id="inp-nome" required>
                     <label for="inp-idade">Idade *</label>
-                    <input type="number" name="inp-idade" id="inp-idade" maxlength="3" required>
+                    <input type="number" name="inp-idade" id="inp-idade" min="0" max="150" required>
                     <label for="inp-plano">Plano *</label><br>
                     <select name="inp-plano" style="width:150px;height:40px;" required>
                         <option value="Plano Básico">Plano Básico</option>
@@ -25,13 +25,13 @@
                         <option value="Plano Master">Plano Master</option>
                     </select><br><br>
                     <label for="inp-cpf">CPF *</label>
-                    <input type="text" name="inp-cpf" id="inp-cpf" maxlength="11" required>
+                    <input type="number" name="inp-cpf" id="inp-cpf" min="11" max="11" required>
                     <label for="inp-telefone">Telefone *</label>
-                    <input type="text" name="inp-telefone" id="inp-telefone" maxlength="11" required>
+                    <input type="number" name="inp-telefone" id="inp-telefone" min="10" max="11" required>
                     <label for="inp-telefone2">Telefone (Opcional)</label>
-                    <input type="text" name="inp-telefone2" id="inp-telefone2" maxlength="11">
+                    <input type="number" name="inp-telefone2" id="inp-telefone2" min="10" max="11">
                     <label for="inp-qntd-dependentes">Quantidade de Dependentes *</label>
-                    <input type="text" name="inp-qntd-dependentes" id="inp-qntd-dependentes" required>
+                    <input type="text" name="inp-qntd-dependentes" id="inp-qntd-dependentes" min="0" required>
                     <label for="inp-apartamento">Apartamento *</label><br>
                     <select name="inp-apartamento" style="width:150px;height:40px;" required>
                         <option value="Não">Não</option>

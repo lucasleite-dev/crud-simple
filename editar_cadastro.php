@@ -42,11 +42,11 @@ $result = $usuario->find($id);
                         <?php } ?>
                     </select><br><br>
                     <label for="inp-cpf">CPF *</label>
-                    <input type="text" name="inp-cpf" id="inp-cpf" maxlength="11" required value="<?= $result->cpf ?>">
+                    <input type="number" name="inp-cpf" id="inp-cpf" min="11" max="11" required value="<?= $result->cpf ?>">
                     <label for="inp-telefone">Telefone *</label>
-                    <input type="text" name="inp-telefone" id="inp-telefone" maxlength="11" required value="<?= $result->telefone ?>">
+                    <input type="number" name="inp-telefone" id="inp-telefone" min="10" max="11" required value="<?= $result->telefone ?>">
                     <label for="inp-telefone2">Telefone (Opcional)</label>
-                    <input type="text" name="inp-telefone2" id="inp-telefone2" maxlength="11" value="<?= $result->telefone2 ?>">
+                    <input type="number" name="inp-telefone2" id="inp-telefone2" min="10" max="11" value="<?= $result->telefone2 ?>">
                     <label for="inp-qntd-dependentes">Quantidade de Dependentes *</label>
                     <input type="text" name="inp-qntd-dependentes" id="inp-qntd-dependentes" required value="<?= $result->dependentes ?>">
                     <label for="inp-apartamento">Apartamento *</label><br>
