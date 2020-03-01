@@ -40,7 +40,7 @@ html, body {
 .tabela-lista-clientes {
     border-spacing: 1;
     border-collapse: collapse;
-    background: #7E7F9A;
+    background: #55587a;
     border-radius: 10px;
     overflow: hidden;
     width: 80%;
@@ -75,7 +75,7 @@ html, body {
 }
 
 .tabela-lista-clientes tbody tr:hover {
-    background: rgb(105, 105, 129);
+    background: #4d506e;
 }
 
 #btn-fazer-cadastro {
@@ -127,7 +127,7 @@ html, body {
 }
 
 .form-cadastro {
-    background: #41435e;
+    background: #55587a;
     width: 600px;
     min-height: 650px;    
     border-spacing: 1;
