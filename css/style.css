@@ -51,6 +51,7 @@ html, body {
 
 .tabela-lista-clientes * {
     position: relative;
+    overflow: auto;
 }
 
 .tabela-lista-clientes thead tr {

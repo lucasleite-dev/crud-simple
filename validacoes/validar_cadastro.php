@@ -1,12 +1,22 @@
 <?php
+if (!isset($_POST['inp-nome'])){
+    header('Location: ../index.php');
+} elseif (!isset($_POST['inp-idade'])){
+    header('Location: ../index.php');
+} elseif (!isset($_POST['inp-plano'])){
+    header('Location: ../index.php');
+} elseif (!isset($_POST['inp-cpf'])){
+    header('Location: ../index.php');
+} elseif (!isset($_POST['inp-telefone'])){
+    header('Location: ../index.php');
+} elseif (!isset($_POST['inp-qntd-dependentes'])){
+    header('Location: ../index.php');
+} elseif (!isset($_POST['inp-apartamento'])){
+    header('Location: ../index.php');
+}
 
-if (!isset($_GET['id'])) return header('Location: index.php');
-if (!isset($_POST['inp-nome'])) return header('Location: index.php');
+require_once(__DIR__.'/../models/Usuario.php');
 
-require_once('./classes/Usuario.php');
-$usuario = new Usuario();
-
-$id = $_GET['id'];
 $nome = $_POST['inp-nome'];
 $idade = $_POST['inp-idade'];
 $plano = $_POST['inp-plano'];
@@ -16,17 +26,17 @@ $telefone2 = $_POST['inp-telefone2'];
 $qntd_dependentes = $_POST['inp-qntd-dependentes'];
 $apartamento = $_POST['inp-apartamento'];
 $valor = 0;
+$planos = ['Plano Básico', 'Plano Médio', 'Plano Master'];
+
 $erro = "";
 $numeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 for ($i = 0; $i < strlen($cpf); $i++){
     if (!in_array($cpf[$i], $numeros)) {
         $erro = "CPF inválido! Apenas números.";
-        return header("Location: editar_cadastro.php?id=".$id."&erro=".$erro);
+        return header("Location: ../paginas/editar_cadastro.php?id=".$id."&erro=".$erro);
     }
 }
-
-$planos = ['Plano Básico', 'Plano Médio', 'Plano Master'];
 
 if ($plano == $planos[0]){ // Plano Básico
     if ($idade >= 0 and $idade <= 30){
@@ -76,8 +86,7 @@ if ($plano == $planos[0]){ // Plano Básico
     }
 }
 
-
-$usuario->setIdUsuario($id);
+$usuario = new Usuario();
 $usuario->setNome($nome);
 $usuario->setIdade($idade);
 $usuario->setPlano($plano);
@@ -87,6 +96,8 @@ $usuario->setTelefone2($telefone2);
 $usuario->setDependentes($qntd_dependentes);
 $usuario->setApartamento($apartamento);
 $usuario->setMensalidade($valor);
-$usuario->update();
+$usuario->insert();
 
-header('Location: index.php');
+header('Location: ../index.php');
+
+?>

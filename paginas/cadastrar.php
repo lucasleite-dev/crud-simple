@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Cadastro</title>
 </head>
 <body>
@@ -17,7 +17,8 @@
                     <p><?=$_GET['erro']?></p>
                 </div>
             <?php } ?>
-            <form class="form-cadastro" action="validar_cadastro.php" method="post">
+            <a id="btn-voltar" href="../index.php">Voltar</a>
+            <form class="form-cadastro" action="../validacoes/validar_cadastro.php" method="post">
                 <fieldset class="form-group">
                     <label for="inp-nome">Nome *</label>
                     <input type="text" name="inp-nome" id="inp-nome" required>

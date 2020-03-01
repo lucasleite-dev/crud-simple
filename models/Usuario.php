@@ -1,7 +1,7 @@
 <?php
-require_once './libs/Crud.php';
+require_once __DIR__. '/Model.php';
 
-class Usuario extends Crud {
+class Usuario extends Model {
 
     protected $table = "usuario";
 
@@ -96,18 +96,22 @@ class Usuario extends Crud {
         $this->apartamento = $value;
     }
 
-    public function loadById($id){
-        $row = find($id);
-        $this->idusuario = $row->idusuario;
-        $this->nome = $row->nome;
-        $this->idade = $row->idade;
-        $this->plano = $row->plano;
-        $this->cpf = $row->cpf;
-        $this->telefone = $row->telefone;
-        $this->telefone2 = $row->telefone2;
-        $this->dependentes = $row->dependentes;
-        $this->mensalidade = $row->mensalidade;
-        $this->apartamento = $row->apartamento;
+    public function find($id){
+        $sql = "SELECT * FROM $this->table WHERE idusuario = :id";
+        $stmt = DB::prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0){
+            return $stmt->fetch();
+        }
+        header('Location: index.php');
+    }
+
+    public function findAll(){
+        $sql = "SELECT * FROM $this->table ORDER BY idusuario DESC";
+        $stmt = DB::prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
     public function insert(){
@@ -138,6 +142,13 @@ class Usuario extends Crud {
         $stmt->bindParam(':mensalidade', $this->mensalidade);
         $stmt->bindParam(':apartamento', $this->apartamento);
         $stmt->bindParam(':id', $this->idusuario);
+        return $stmt->execute();
+    }
+
+    public function delete($id){
+        $sql = "DELETE FROM $this->table WHERE idusuario = :id";
+        $stmt = DB::prepare($sql);
+        $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
 }
