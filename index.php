@@ -48,7 +48,7 @@ $usuarios = $usuario->findAll();
                             <td><?= $user->telefone2; ?></td>
                             <td><?= $user->dependentes; ?></td>
                             <td><?php if ($user->apartamento == "nao") {echo  "Não";} else {echo "Sim";} ?></td>
-                            <td>R$ <?= $user->mensalidade; ?></td>
+                            <td>R$ <?= number_format($user->mensalidade, 2, ',', ''); ?></td>
                             <td>
                                 <a class="btn-acao" href="paginas/editar_cadastro.php?id=<?= $user->idusuario; ?>"><i class="material-icons">edit</i></a>
                                 <a class="btn-acao" href="paginas/deletar_cadastro.php?id=<?= $user->idusuario; ?>"><i class="material-icons">delete</i></a>
