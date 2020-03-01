@@ -111,7 +111,7 @@ class Usuario extends Crud {
     }
 
     public function insert(){
-        $sql = "INSERT INTO $this->table (nome, idade, plano, cpf, telefone, telefone2, dependentes, mensalidade, apartamento) VALUES (:nome, :idade, :plano, :cpf, :telefone, :telefone2, :dependentes, :mensalidade, :apartamento); SET @count = 0; UPDATE $this->table SET $this->table.idusuario = @count:= @count + 1;";
+        $sql = "INSERT INTO $this->table (nome, idade, plano, cpf, telefone, telefone2, dependentes, mensalidade, apartamento) VALUES (:nome, :idade, :plano, :cpf, :telefone, :telefone2, :dependentes, :mensalidade, :apartamento)";
         $stmt = DB::prepare($sql);
         $stmt->bindParam(':nome', $this->nome);
         $stmt->bindParam(':idade', $this->idade);
@@ -128,7 +128,6 @@ class Usuario extends Crud {
     public function update(){
         $sql = "UPDATE $this->table SET nome = :nome, idade = :idade, plano = :plano, cpf = :cpf, telefone = :telefone, telefone2 = :telefone2, dependentes = :dependentes, mensalidade = :mensalidade, apartamento = :apartamento WHERE idusuario = :id";
         $stmt = DB::prepare($sql);
-        $stmt->bindParam(':id', $this->idusuario);
         $stmt->bindParam(':nome', $this->nome);
         $stmt->bindParam(':idade', $this->idade);
         $stmt->bindParam(':plano', $this->plano);
@@ -138,6 +137,7 @@ class Usuario extends Crud {
         $stmt->bindParam(':dependentes', $this->dependentes);
         $stmt->bindParam(':mensalidade', $this->mensalidade);
         $stmt->bindParam(':apartamento', $this->apartamento);
+        $stmt->bindParam(':id', $this->idusuario);
         return $stmt->execute();
     }
 }

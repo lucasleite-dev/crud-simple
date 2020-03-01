@@ -28,7 +28,7 @@ abstract class Crud {
     }
 
     public function delete($id){
-        $sql = "DELETE FROM $this->table WHERE idusuario = :id; SET @count = 0; UPDATE $this->table SET $this->table.idusuario = @count:= @count + 1;";
+        $sql = "DELETE FROM $this->table WHERE idusuario = :id";
         $stmt = DB::prepare($sql);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();

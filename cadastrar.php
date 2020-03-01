@@ -17,7 +17,7 @@
                     <label for="inp-nome">Nome *</label>
                     <input type="text" name="inp-nome" id="inp-nome" required>
                     <label for="inp-idade">Idade *</label>
-                    <input type="text" name="inp-idade" id="inp-idade" required>
+                    <input type="number" name="inp-idade" id="inp-idade" maxlength="3" required>
                     <label for="inp-plano">Plano *</label><br>
                     <select name="inp-plano" style="width:150px;height:40px;" required>
                         <option value="Plano Básico">Plano Básico</option>

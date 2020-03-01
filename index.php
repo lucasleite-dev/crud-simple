@@ -10,6 +10,7 @@ $usuarios = $usuario->findAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Plano de Saúde</title>
 </head>
 <body>
@@ -49,8 +50,8 @@ $usuarios = $usuario->findAll();
                             <td><?php if ($user->apartamento == "nao") {echo  "Não";} else {echo "Sim";} ?></td>
                             <td>R$ <?= $user->mensalidade; ?></td>
                             <td>
-                                <a id="btn-edit" href="editar_cadastro.php?id=<?= $user->idusuario; ?>">Editar</a>
-                                <a id="btn-del" href="deletar_cadastro.php?id=<?= $user->idusuario; ?>">Excluir</a>
+                                <a class="btn-acao" href="editar_cadastro.php?id=<?= $user->idusuario; ?>"><i class="material-icons">edit</i></a>
+                                <a class="btn-acao" href="deletar_cadastro.php?id=<?= $user->idusuario; ?>"><i class="material-icons">delete</i></a>
                             </td>
                         </tr>
                     <?php } ?>

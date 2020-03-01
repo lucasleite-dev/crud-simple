@@ -212,3 +212,12 @@ html, body {
 #btn-deletar:last-child {
     margin-right: 0px;
 }
+
+.btn-acao {
+    margin-right:5px;
+    color:#F9F8F8;
+}
+
+.btn-acao:last-child{
+    margin-right: 0px;
+}
