@@ -45,7 +45,7 @@ $result = $usuario->find($id);
                     <input type="text" name="inp-cpf" id="inp-cpf" maxlength="11" required value="<?= $result->cpf ?>">
                     <label for="inp-telefone">Telefone *</label>
                     <input type="text" name="inp-telefone" id="inp-telefone" maxlength="11" required value="<?= $result->telefone ?>">
-                    <label for="inp-telefone2">Telefone</label>
+                    <label for="inp-telefone2">Telefone (Opcional)</label>
                     <input type="text" name="inp-telefone2" id="inp-telefone2" maxlength="11" value="<?= $result->telefone2 ?>">
                     <label for="inp-qntd-dependentes">Quantidade de Dependentes *</label>
                     <input type="text" name="inp-qntd-dependentes" id="inp-qntd-dependentes" required value="<?= $result->dependentes ?>">

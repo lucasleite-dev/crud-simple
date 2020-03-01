@@ -220,4 +220,5 @@ html, body {
 
 .btn-acao:last-child{
     margin-right: 0px;
+    color: rgb(231, 44, 44);
 }
