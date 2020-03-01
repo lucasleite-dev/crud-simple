@@ -19,6 +19,12 @@ $result = $usuario->find($id);
             <h1>Editar Usuário</h3>
         </div>
         <div class="conteudo">
+            <?php if (isset($_GET['erro'])) {?>
+                <div class="msg-erro">
+                    <p><?=$_GET['erro']?></p>
+                </div>
+            <?php } ?>
+            <a id="btn-voltar" href="index.php">Voltar</a>
             <form class="form-cadastro" action="validar_edicao.php?id=<?=$result->idusuario?>" method="post">
                 <fieldset class="form-group">
                     <label for="inp-nome">Nome *</label>
@@ -42,11 +48,11 @@ $result = $usuario->find($id);
                         <?php } ?>
                     </select><br><br>
                     <label for="inp-cpf">CPF *</label>
-                    <input type="number" name="inp-cpf" id="inp-cpf" min="11" max="11" required value="<?= $result->cpf ?>">
+                    <input type="text" name="inp-cpf" id="inp-cpf" minlength="11" maxlength="11" required value="<?= $result->cpf ?>">
                     <label for="inp-telefone">Telefone *</label>
-                    <input type="number" name="inp-telefone" id="inp-telefone" min="10" max="11" required value="<?= $result->telefone ?>">
+                    <input type="text" name="inp-telefone" id="inp-telefone" minlength="10" maxlength="11" required value="<?= $result->telefone ?>">
                     <label for="inp-telefone2">Telefone (Opcional)</label>
-                    <input type="number" name="inp-telefone2" id="inp-telefone2" min="10" max="11" value="<?= $result->telefone2 ?>">
+                    <input type="text" name="inp-telefone2" id="inp-telefone2" minlength="10" maxlength="11" value="<?= $result->telefone2 ?>">
                     <label for="inp-qntd-dependentes">Quantidade de Dependentes *</label>
                     <input type="text" name="inp-qntd-dependentes" id="inp-qntd-dependentes" required value="<?= $result->dependentes ?>">
                     <label for="inp-apartamento">Apartamento *</label><br>

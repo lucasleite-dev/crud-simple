@@ -16,6 +16,15 @@ $telefone2 = $_POST['inp-telefone2'];
 $qntd_dependentes = $_POST['inp-qntd-dependentes'];
 $apartamento = $_POST['inp-apartamento'];
 $valor = 0;
+$erro = "";
+$numeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+for ($i = 0; $i < strlen($cpf); $i++){
+    if (!in_array($cpf[$i], $numeros)) {
+        $erro = "CPF inválido! Apenas números.";
+        return header("Location: editar_cadastro.php?id=".$id."&erro=".$erro);
+    }
+}
 
 $planos = ['Plano Básico', 'Plano Médio', 'Plano Master'];
 

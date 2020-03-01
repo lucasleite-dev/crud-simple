@@ -12,6 +12,11 @@
             <h1>Cadastrar Usuário</h3>
         </div>
         <div class="conteudo">
+            <?php if (isset($_GET['erro'])) {?>
+                <div class="msg-erro">
+                    <p><?=$_GET['erro']?></p>
+                </div>
+            <?php } ?>
             <form class="form-cadastro" action="validar_cadastro.php" method="post">
                 <fieldset class="form-group">
                     <label for="inp-nome">Nome *</label>
@@ -25,11 +30,11 @@
                         <option value="Plano Master">Plano Master</option>
                     </select><br><br>
                     <label for="inp-cpf">CPF *</label>
-                    <input type="number" name="inp-cpf" id="inp-cpf" min="11" max="11" required>
+                    <input type="number" name="inp-cpf" id="inp-cpf" minlength="" maxlength="11" required>
                     <label for="inp-telefone">Telefone *</label>
-                    <input type="number" name="inp-telefone" id="inp-telefone" min="10" max="11" required>
+                    <input type="number" name="inp-telefone" id="inp-telefone" minlength="" maxlength="11" required>
                     <label for="inp-telefone2">Telefone (Opcional)</label>
-                    <input type="number" name="inp-telefone2" id="inp-telefone2" min="10" max="11">
+                    <input type="number" name="inp-telefone2" id="inp-telefone2" minlength="" maxlength="11">
                     <label for="inp-qntd-dependentes">Quantidade de Dependentes *</label>
                     <input type="text" name="inp-qntd-dependentes" id="inp-qntd-dependentes" min="0" required>
                     <label for="inp-apartamento">Apartamento *</label><br>

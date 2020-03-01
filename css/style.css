@@ -27,7 +27,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-bottom: 2%;
 }
 
@@ -188,6 +188,24 @@ html, body {
     margin-left: 100px;
 }
 
+#btn-voltar {
+    background: rgb(46, 93, 224);
+    color: white;
+    font-family: arial;
+    font-size:16px;
+    border:none;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 400px;
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: none;
+    align-self: center;
+    margin-bottom: 15px;
+}
+
 .conteudo-deletar {
     display: flex;
     flex-direction: row;
@@ -218,7 +236,14 @@ html, body {
     color:#F9F8F8;
 }
 
-.btn-acao:last-child{
+.btn-acao:last-child {
     margin-right: 0px;
     color: rgb(231, 44, 44);
+}
+
+.msg-erro {
+    align-self:center;
+    margin-bottom:12px;
+    margin-top:-30px;
+    color: red;
 }
